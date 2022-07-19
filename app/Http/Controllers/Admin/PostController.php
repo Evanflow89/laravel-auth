@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Post;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -34,9 +36,22 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+   
     {
-      dd($request->all());
+    
+        $data = $request->all();
+        $newPost = new Post();
+        $newPost->fill($data);
+
+        $newPost->slug = $this->getSlug($data['title']);
+
+        $newPost->published = isset($data['published']); // true o false
+        $newPost->save();
+        
+
+        return redirect()->route('admin.posts.show', $newPost->id);
     }
+
 
     /**
      * Display the specified resource.
