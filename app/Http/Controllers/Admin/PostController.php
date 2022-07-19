@@ -43,7 +43,7 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->fill($data);
 
-        $newPost->slug = $this->getSlug($data['title']);
+        $newPost->slug = Str::of($data['title'])->slug('-');
 
         $newPost->published = isset($data['published']); // true o false
         $newPost->save();
