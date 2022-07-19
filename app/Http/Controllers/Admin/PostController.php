@@ -43,7 +43,7 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->fill($data);
 
-        $newPost->slug = Str::of($data['title'])->slug('-');
+        $newPost->slug = $this->getSlug($data['title']);
 
         $newPost->published = isset($data['published']); // true o false
         $newPost->save();
@@ -96,5 +96,18 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getSlug($title)
+    {
+        $slug = Str::of($title)->slug('-');
+        $count = 1;
+
+        while( Post::where('slug', $slug)->first() ) {
+            $slug = Str::of($title)->slug('-') . "-{$count}";
+            $count++;
+        }
+
+        return $slug;
     }
 }
