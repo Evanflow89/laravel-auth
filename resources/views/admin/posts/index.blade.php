@@ -10,6 +10,7 @@
         <div class="card-body">
           <div class="mb-3">
             <a href="{{route('admin.posts.create')}}" class="btn btn-success">Insert New Post</a>
+            
           </div>
             <table class="table table-striped">
                 <thead>
@@ -29,7 +30,7 @@
                     <td>{{$post->id}}</td>
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
-                    <td>{{$post->content}}</td>
+                    <td class="text-truncate" style="max-width: 150px">{{$post->content}}</td>
                     <td>
                         @if ($post->published) 
                         <span class="badge rounded-pill bg-primary text-light">Published</span>     
@@ -40,6 +41,7 @@
                     </td>
                     <td>
                       <a class="btn btn-primary" href="{{route('admin.posts.show', $post->id)}}">Show</a>
+                      <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning">Edit Post</a>
                     </td>
                   </tr>
 
