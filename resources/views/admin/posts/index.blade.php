@@ -29,7 +29,7 @@
                     <td>{{$post->content}}</td>
                     <td>
                         @if ($post->published) 
-                        <span class="badge rounded-pill bg-primary">Published</span>     
+                        <span class="badge rounded-pill bg-primary text-light">Published</span>     
                         @else
                         <span class="badge rounded-pill bg-warning text-dark">Draft</span>
                         @endif
