@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div>{{$post->content}}</div>
-            <a class="btn btn-primary" href="{{route('admin.posts.index')}}">Back</a>
+            <a class="btn btn-primary mt-3" href="{{route('admin.posts.index')}}">Back</a>
         </div>
     </div>
 </div>

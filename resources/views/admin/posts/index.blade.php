@@ -8,6 +8,9 @@
             <h1>Posts</h1>
         </div>
         <div class="card-body">
+          <div class="mb-3">
+            <a href="{{route('admin.posts.create')}}" class="btn btn-success">Insert New Post</a>
+          </div>
             <table class="table table-striped">
                 <thead>
                   <tr>
