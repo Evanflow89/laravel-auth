@@ -27,6 +27,14 @@
                     <td>{{$post->title}}</td>
                     <td>{{$post->slug}}</td>
                     <td>{{$post->content}}</td>
+                    <td>
+                        @if ($post->published) 
+                        <span class="badge rounded-pill bg-primary">Published</span>     
+                        @else
+                        <span class="badge rounded-pill bg-warning text-dark">Draft</span>
+                        @endif
+                        
+                    </td>
                   </tr>
 
                   @endforeach
