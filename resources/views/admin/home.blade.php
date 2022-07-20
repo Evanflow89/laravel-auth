@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <a href="{{route('admin.posts.index')}}" class="btn btn-primary">Go To Posts</a>
                 </div>
             </div>
         </div>
