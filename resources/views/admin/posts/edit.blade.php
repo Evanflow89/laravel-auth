@@ -8,7 +8,7 @@
                 <h1>Update {{$post->title}}</h1>
             </div>
             <div class="card-body">
-                <form action="{{route('admin.posts.update')}}" method="POST">
+                <form action="{{route('admin.posts.update', $post->id)}}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
